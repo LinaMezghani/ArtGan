@@ -113,6 +113,6 @@ for i in range(n_epochs):
         plt.subplot(10, 10, i2+1)
         plt.imshow(images[i2], cmap='gray_r')
         plt.axis('off')
-    plt.show()
     plt.savefig('train_mnist_dcgan_epoch_'+str(i)+'.png')
+    plt.show()
     plt.pause(0.05)
