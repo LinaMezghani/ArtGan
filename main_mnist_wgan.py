@@ -24,15 +24,13 @@ from functools import partial
 X_train = X_train / 255
 X_test = X_test / 255
 
-names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
-
 y_train = to_categorical(y_train, num_classes=10)
 y_test = to_categorical(y_test, num_classes=10)
 
 #X_train = np.expand_dims(X_train, axis=-1)
 #X_test = np.expand_dims(X_test, axis=-1)
 
-n_epochs = 100
+n_epochs = 20
 epoch_size = 500
 batch_size = 128
 
@@ -143,25 +141,24 @@ for i in range(n_epochs):
     print("Gen", np.mean(loss_gen, axis=0))
     #plt.imshow(X_fake[1][:,:,0])
     #plt.title(sampled_labels[1])
-    if i%1==0:
-        examples=9
-        noise = np.random.uniform(-1.0, 1.0, size=[examples, noise_dim])
-        labels = np.arange(9)
-    #    l = labels.reshape(-1, 1)
-    #    l = np.tile(l, 10)
-    #    l = l.reshape(100)
-    #    labels = np.tile(labels, 10)
-        labels = to_categorical(labels, num_classes=10)
-    #    l = to_categorical(l)
-    #    labels = labels
-        images = gen.predict([noise, labels], batch_size=batch_size)
-        images = images.reshape(-1, target_size[0],target_size[1])
-        plt.figure(figsize=(10, 10))
-        for i2 in range(images.shape[0]):
-            ax=plt.subplot(3, 3, i2+1)
-            ax.set_title(names[i2], fontsize=10)
-            plt.imshow(images[i2], cmap='gray_r')
-            plt.axis('off')
-        plt.savefig('train_mnist_wgan_epoch_'+str(i)+'.png')
-        plt.show()
-        plt.pause(0.05)
+    
+    examples=100
+    noise = np.random.uniform(-1.0, 1.0, size=[examples, noise_dim])
+    labels = np.arange(10)
+    l = labels.reshape(-1, 1)
+    l = np.tile(l, 10)
+    l = l.reshape(100)
+    labels = np.tile(labels, 10)
+    labels = to_categorical(labels)
+    l = to_categorical(l)
+    labels = labels
+    images = gen.predict([noise, labels], batch_size=batch_size)
+    images = images.reshape(-1, target_size[0],target_size[1])
+    plt.figure(figsize=(10, 10))
+    for i2 in range(images.shape[0]):
+        plt.subplot(10, 10, i2+1)
+        plt.imshow(images[i2], cmap='gray_r')
+        plt.axis('off')
+     plt.savefig('train_mnist_wgan_epoch_'+str(i)+'.png')
+     plt.show()
+     plt.pause(0.05)
