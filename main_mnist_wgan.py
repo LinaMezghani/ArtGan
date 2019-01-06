@@ -157,11 +157,11 @@ for i in range(n_epochs):
         images = gen.predict([noise, labels], batch_size=batch_size)
         images = images.reshape(-1, target_size[0],target_size[1])
         plt.figure(figsize=(10, 10))
-        for i in range(images.shape[0]):
-            ax=plt.subplot(3, 3, i+1)
-            ax.set_title(names[i], fontsize=10)
-            plt.imshow(images[i], interpolation='nearest', cmap='gray_r')
+        for i2 in range(images.shape[0]):
+            ax=plt.subplot(3, 3, i2+1)
+            ax.set_title(names[i2], fontsize=10)
+            plt.imshow(images[i2], cmap='gray_r')
             plt.axis('off')
-        plt.tight_layout()
         plt.show()
+        plt.savefig('train_mnist_wgan_epoch_'+str(i)+'.png')
         plt.pause(0.05)
