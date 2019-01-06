@@ -162,6 +162,6 @@ for i in range(n_epochs):
             ax.set_title(names[i2], fontsize=10)
             plt.imshow(images[i2], cmap='gray_r')
             plt.axis('off')
-        plt.show()
         plt.savefig('train_mnist_wgan_epoch_'+str(i)+'.png')
+        plt.show()
         plt.pause(0.05)
