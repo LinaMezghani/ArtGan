@@ -208,11 +208,11 @@ for i in range(n_epochs):
         images = gen.predict([noise_disp, labels], batch_size=batch_size)
         images = images.reshape(-1, target_size[0],target_size[1], 3)
         dim = int(np.sqrt(nb_select))
-        for i in range(images.shape[0]):
-            ax=plt.subplot(dim, dim, i+1)
+        for i2 in range(images.shape[0]):
+            ax=plt.subplot(dim, dim, i2+1)
             #ax.title.set_text(classes[i][1], fontsize=5)
-            ax.set_title(classes[arg[i]][1], fontsize=5)
-            plt.imshow((images[i]+1)/2, interpolation='nearest', cmap='gray_r')
+            ax.set_title(classes[arg[i2]][1], fontsize=5)
+            plt.imshow((images[i2]+1)/2, interpolation='nearest', cmap='gray_r')
             plt.axis('off')
         plt.tight_layout()
         plt.show()
