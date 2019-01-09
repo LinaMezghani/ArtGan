@@ -47,7 +47,7 @@ gen, disc = get_models(64, 64, 256, 256,  noise_dim, 10, n_channels=1)
 opt = Adam(0.0002, 0.5)
 disc.compile(loss=['binary_crossentropy', 'categorical_crossentropy'], optimizer=opt, metrics=['accuracy'])
 adv = adversarial(gen, disc, opt)
-plt.ion()
+#plt.ion()
 #plt.figure(figsize=(10, 10))
 for i in range(n_epochs):
     print("Epoch ", i)
