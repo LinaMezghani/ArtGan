@@ -129,7 +129,7 @@ for repeat in range(8):
             images = images.reshape(-1, target_size[0],target_size[1], 3)
             dim = int(np.sqrt(nb_select))
             for i2 in range(images.shape[0]):
-                scipy.misc.toimage(images[i2]).save("replay"+str(replay)+"_epoch"+str(i)+"_image"+str(i2)+".jpg")
+                scipy.misc.toimage(images[i2]).save("repeat"+str(repeat)+"_epoch"+str(i)+"_image"+str(i2)+".jpg")
             """
             for i in range(images.shape[0]):
                 ax=plt.subplot(dim, dim, i+1)
