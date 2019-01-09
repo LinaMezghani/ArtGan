@@ -112,7 +112,7 @@ for i in range(n_epochs):
     images = images.reshape(-1, target_size[0],target_size[1])
     
     for i2 in range(10):
-        scipy.misc.toimage(images[i2]).save("image"+str(i2)+"_epoch"+str(i))
+        scipy.misc.toimage(images[i2]).save("image"+str(i2)+"_epoch"+str(i)+".jpg")
     
     """
     for i2 in range(images.shape[0]):
