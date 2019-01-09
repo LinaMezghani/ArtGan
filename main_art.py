@@ -22,7 +22,7 @@ from networks import get_models, adversarial, null_loss, generator, discriminato
 from utils import producer, getPaths, scale, mean
 
 data_train = "wikipaintings_full/wikipaintings_train"
-data_test = "wikipaintings_full/wikipaintings_test"
+data_test = "wikipaintings_full/wikipaintings_train"
 
 train_paths, y_train, classes = getPaths(data_train)
 test_paths, y_test, classes = getPaths(data_test)
