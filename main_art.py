@@ -127,6 +127,9 @@ for repeat in range(8):
             images = gen.predict([noise, labels], batch_size=batch_size)
             images = images.reshape(-1, target_size[0],target_size[1], 3)
             dim = int(np.sqrt(nb_select))
+            for i2 in range(images.shape[0]):
+                scipy.misc.toimage(images[i2]).save("replay"+str(replay)+"_epoch"+str(i)+"_image"+str(i2)+".jpg")
+            """
             for i in range(images.shape[0]):
                 ax=plt.subplot(dim, dim, i+1)
                 #ax.title.set_text(classes[i][1], fontsize=5)
@@ -135,6 +138,6 @@ for repeat in range(8):
                 plt.axis('off')
             plt.tight_layout()
             plt.show()
-            plt.pause(0.05)
+            plt.pause(0.05)"""
     
 stop_event.set()
