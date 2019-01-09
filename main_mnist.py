@@ -48,7 +48,7 @@ opt = Adam(0.0002, 0.5)
 disc.compile(loss=['binary_crossentropy', 'categorical_crossentropy'], optimizer=opt, metrics=['accuracy'])
 adv = adversarial(gen, disc, opt)
 plt.ion()
-plt.figure(figsize=(10, 10))
+#plt.figure(figsize=(10, 10))
 for i in range(n_epochs):
     print("Epoch ", i)
     loss_disc=[]
