@@ -10,6 +10,7 @@ from keras.datasets import mnist
 from keras.optimizers import Adam
 from keras.utils.np_utils import to_categorical
 import cv2
+import scipy.misc
 
 from tqdm import tqdm
 
@@ -108,13 +109,16 @@ for i in range(n_epochs):
     l = to_categorical(l)
     labels = labels
     images = gen.predict([noise, labels], batch_size=batch_size)
-    print(images.shape)
     images = images.reshape(-1, target_size[0],target_size[1])
-    print(images.shape)
+    
+    for i2 in range(10):
+        scipy.misc.toimage(images[i2]).save("image"+str(i2)+"_epoch"+str(i))
+    
+    """
     for i2 in range(images.shape[0]):
         plt.subplot(10, 10, i2+1)
         plt.imshow(images[i2], cmap='gray_r')
         plt.axis('off')
     plt.savefig('train_mnist_dcgan_epoch_'+str(i)+'.png')
     plt.show()
-    plt.pause(0.05)
+    plt.pause(0.05)"""
