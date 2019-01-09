@@ -108,7 +108,9 @@ for i in range(n_epochs):
     l = to_categorical(l)
     labels = labels
     images = gen.predict([noise, labels], batch_size=batch_size)
+    print(images.shape)
     images = images.reshape(-1, target_size[0],target_size[1])
+    print(images.shape)
     for i2 in range(images.shape[0]):
         plt.subplot(10, 10, i2+1)
         plt.imshow(images[i2], cmap='gray_r')
