@@ -25,10 +25,10 @@ from utils import producer, getPaths, scale, mean
 
 
 data_train = "wikipaintings_full\wikipaintings_train"
-data_test = "wikipaintings_full\wikipaintings_train"
+#data_test = "wikipaintings_full\wikipaintings_train"
 
 train_paths, y_train, classes = getPaths(data_train)
-test_paths, y_test, classes = getPaths(data_test)
+#test_paths, y_test, classes = getPaths(data_test)
 
 ls = [-np.sum(y_train==i) for i in range(25)]
 arg = np.argsort(ls)
