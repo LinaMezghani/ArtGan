@@ -13,6 +13,7 @@ from keras.layers import Input
 from keras.models import Model
 from keras import backend as K
 import cv2
+import scipy.misc
 
 from tqdm import tqdm
 import queue
