@@ -25,7 +25,7 @@ data_test = "wikipaintings_full/wikipaintings_test"
 
 train_paths, y_train, classes = getPaths(data_train)
 test_paths, y_test, classes = getPaths(data_test)
-target_size = (128, 128)
+target_size = (128, 128, 3)
 
 ls = [-np.sum(y_train==i) for i in range(25)]
 arg = np.argsort(ls)
